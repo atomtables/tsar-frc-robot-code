@@ -12,7 +12,7 @@ import frc.robot.Constants.ClimberConstants;
 
 public class ClimberSubsystem extends SubsystemBase {
 
-    private final SparkMax motor;
+    private final SparkMax climbMotor;
 
     /**
      * This subsytem that controls the climber.
