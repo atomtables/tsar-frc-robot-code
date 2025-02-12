@@ -16,8 +16,15 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 //import edu.wpi.first.wpilibj2.command.button.CommandPS4Controller;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
 
+import frc.robot.Constants.OperatorConstants;
 import frc.robot.generated.TunerConstants;
 import frc.robot.subsystems.CommandSwerveDrivetrain;
+import frc.robot.subsystems.RollerSubsystem;
+import frc.robot.subsystems.Climber;
+import frc.robot.subsystems.ArmSubsystem;
+import frc.robot.autos.DriveForwardAuto;
+import frc.robot.autos.SimpleCoralAuto;
+import frc.robot.commands.
 
 public class RobotContainer {
     private double MaxSpeed = TunerConstants.kSpeedAt12Volts.in(MetersPerSecond); // kSpeedAt12Volts desired top speed
@@ -35,6 +42,9 @@ public class RobotContainer {
     private final CommandXboxController joystick = new CommandXboxController(0);
 
     public final CommandSwerveDrivetrain drivetrain = TunerConstants.createDrivetrain();
+    public final Climber climber = new Climber();
+    public final RollerSubsystem roller = new RollerSubsystem();
+    public final ArmSubsystem arm = new ArmSubsystem();
 
     public RobotContainer() {
         configureBindings();
