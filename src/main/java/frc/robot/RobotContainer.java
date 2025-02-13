@@ -77,6 +77,7 @@ public class RobotContainer {
 
         // Run SysId routines when holding back/start and X/Y.
         // Note that each routine should be run exactly once in a single log.
+        
         joystick.back().and(joystick.y()).whileTrue(drivetrain.sysIdDynamic(Direction.kForward));
         joystick.back().and(joystick.x()).whileTrue(drivetrain.sysIdDynamic(Direction.kReverse));
         joystick.start().and(joystick.y()).whileTrue(drivetrain.sysIdQuasistatic(Direction.kForward));
@@ -86,6 +87,18 @@ public class RobotContainer {
         joystick.leftBumper().onTrue(drivetrain.runOnce(() -> drivetrain.seedFieldCentric()));
 
         drivetrain.registerTelemetry(logger::telemeterize);
+
+        //joystick.rightBumper().whileTrue(new AlgieInCommand(roller));
+        //joystick.rightTrigger(.2).whileTrue(new AlgieOutCommand(roller));
+
+        //joystick.leftBumper().whileTrue(new ArmUpCommand(arm));
+        //joystick.leftTrigger(.2).whileTrue(new ArmDownCommand(arm));
+        
+        //joystick.x().whileTrue(new CoralOutCommand(roller));
+        //joystick.y().whileTrue(new CoralStackCommand(roller));
+
+        //joystick.pov(0).whileTrue(new ClimberUpCommand(climber));
+        //joystick.pov(180).whileTrue(new ClimberDownCommand(climber));
     }
 
     public Command getAutonomousCommand() {
