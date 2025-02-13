@@ -24,7 +24,15 @@ import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.ArmSubsystem;
 import frc.robot.autos.DriveForwardAuto;
 import frc.robot.autos.SimpleCoralAuto;
-import frc.robot.commands.
+import frc.robot.commands.AlgieInCommand;
+import frc.robot.commands.AlgieOutCommand;
+import frc.robot.commands.ArmDownCommand;
+import frc.robot.commands.ArmUpCommand;
+import frc.robot.commands.ClimberDownCommand;
+import frc.robot.commands.ClimberUpCommand;
+import frc.robot.commands.CoralOutCommand;
+import frc.robot.commands.CoralStackCommand;
+import frc.robot.commands.DriveCommand;
 
 public class RobotContainer {
     private double MaxSpeed = TunerConstants.kSpeedAt12Volts.in(MetersPerSecond); // kSpeedAt12Volts desired top speed
