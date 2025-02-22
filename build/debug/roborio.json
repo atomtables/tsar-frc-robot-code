@@ -1,0 +1,9 @@
+[
+  {
+    "type": "java",
+    "name": "frcJava",
+    "port": 8349,
+    "target": "10.106.0.2",
+    "project": "tsar-frc-robot-code"
+  }
+]

@@ -10,14 +10,14 @@ import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.ClimberConstants;
 
-public class ClimberSubsystem extends SubsystemBase {
+public class Climber extends SubsystemBase {
 
     private final SparkMax climbMotor;
 
     /**
      * This subsytem that controls the climber.
      */
-    public ClimberSubsystem () {
+    public Climber () {
 
     // Set up the climb motor as a brushless motor
     climbMotor = new SparkMax(ClimberConstants.CLIMBER_MOTOR_ID, MotorType.kBrushless);

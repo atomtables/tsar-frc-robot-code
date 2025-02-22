@@ -5,12 +5,12 @@
 package frc.robot.commands;
 
 import frc.robot.Constants.ClimberConstants;
-import frc.robot.subsystems.ClimberSubsystem;
+import frc.robot.subsystems.Climber;
 import edu.wpi.first.wpilibj2.command.Command;
 
 /** An ClimberUpCommand that uses a climb subsystem. */
 public class ClimberUpCommand extends Command {
-  private final ClimberSubsystem m_climber;
+  private final Climber m_climber;
 
   /**
    * Runs the climber up, note that this can change 
@@ -18,7 +18,7 @@ public class ClimberUpCommand extends Command {
    *
    * @param climber The subsystem used by this command.
    */
-  public ClimberUpCommand(ClimberSubsystem climber) {
+  public ClimberUpCommand(Climber climber) {
     m_climber = climber;
     addRequirements(climber);
   }
