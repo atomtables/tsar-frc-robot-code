@@ -67,10 +67,10 @@ public class RobotContainer {
             )
         );
 
-        joystick.a().whileTrue(drivetrain.applyRequest(() -> brake));
-        joystick.b().whileTrue(drivetrain.applyRequest(() ->
-            point.withModuleDirection(new Rotation2d(-joystick.getRightY(), -joystick.getRightX()))
-        ));
+        //joystick.a().whileTrue(drivetrain.applyRequest(() -> brake));
+        //joystick.b().whileTrue(drivetrain.applyRequest(() ->
+            //point.withModuleDirection(new Rotation2d(-joystick.getRightY(), -joystick.getRightX()))
+        //));
 
         // Run SysId routines when holding back/start and X/Y.
         // Note that each routine should be run exactly once in a single log.
@@ -85,17 +85,17 @@ public class RobotContainer {
 
         drivetrain.registerTelemetry(logger::telemeterize);
 
-        //joystick.rightBumper().whileTrue(new AlgieInCommand(roller));
-        //joystick.rightTrigger(.2).whileTrue(new AlgieOutCommand(roller));
+        joystick.rightBumper().whileTrue(new AlgieInCommand(roller));
+        joystick.rightTrigger(.2).whileTrue(new AlgieOutCommand(roller));
 
-        //joystick.leftBumper().whileTrue(new ArmUpCommand(arm));
-        //joystick.leftTrigger(.2).whileTrue(new ArmDownCommand(arm));
+        joystick.leftBumper().whileTrue(new ArmUpCommand(arm));
+        joystick.leftTrigger(.2).whileTrue(new ArmDownCommand(arm));
         
-        //joystick.x().whileTrue(new CoralOutCommand(roller));
-        //joystick.y().whileTrue(new CoralStackCommand(roller));
+        joystick.x().whileTrue(new CoralOutCommand(roller));
+        joystick.y().whileTrue(new CoralStackCommand(roller));
 
-        //joystick.pov(0).whileTrue(new ClimberUpCommand(climber));
-        //joystick.pov(180).whileTrue(new ClimberDownCommand(climber));
+        joystick.a().whileTrue(new ClimberUpCommand(climber));
+        joystick.b().whileTrue(new ClimberDownCommand(climber));
     }
 
     public Command getAutonomousCommand() {
