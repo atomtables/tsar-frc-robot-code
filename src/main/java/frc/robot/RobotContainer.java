@@ -58,14 +58,14 @@ public class RobotContainer {
     private void configureBindings() {
         // Note that X is defined as forward according to WPILib convention,
         // and Y is defined as to the left according to WPILib convention.
-        drivetrain.setDefaultCommand(
+        //drivetrain.setDefaultCommand(
             // Drivetrain will execute this command periodically
-            drivetrain.applyRequest(() ->
-                drive.withVelocityX(-joystick.getLeftY() * MaxSpeed) // Drive forward with negative Y (forward)
-                    .withVelocityY(-joystick.getLeftX() * MaxSpeed) // Drive left with negative X (left)
-                    .withRotationalRate(-joystick.getRightX() * MaxAngularRate) // Drive counterclockwise with negative X (left)
-            )
-        );
+            //drivetrain.applyRequest(() ->
+                //drive.withVelocityX(-joystick.getLeftY() * MaxSpeed) // Drive forward with negative Y (forward)
+                    //.withVelocityY(-joystick.getLeftX() * MaxSpeed) // Drive left with negative X (left)
+                    //.withRotationalRate(-joystick.getRightX() * MaxAngularRate) // Drive counterclockwise with negative X (left)
+            //)
+        //);
 
         //joystick.a().whileTrue(drivetrain.applyRequest(() -> brake));
         //joystick.b().whileTrue(drivetrain.applyRequest(() ->
@@ -85,11 +85,11 @@ public class RobotContainer {
 
         drivetrain.registerTelemetry(logger::telemeterize);
 
-        joystick.rightBumper().whileTrue(new AlgieInCommand(roller));
-        joystick.rightTrigger(.2).whileTrue(new AlgieOutCommand(roller));
+        joystick.leftBumper().whileTrue(new AlgieInCommand(roller));
+        joystick.rightBumper().whileTrue(new AlgieOutCommand(roller));
 
-        joystick.leftBumper().whileTrue(new ArmUpCommand(arm));
-        joystick.leftTrigger(.2).whileTrue(new ArmDownCommand(arm));
+        joystick.leftTrigger().whileTrue(new ArmUpCommand(arm));
+        joystick.rightTrigger().whileTrue(new ArmDownCommand(arm));
         
         joystick.x().whileTrue(new CoralOutCommand(roller));
         joystick.y().whileTrue(new CoralStackCommand(roller));
