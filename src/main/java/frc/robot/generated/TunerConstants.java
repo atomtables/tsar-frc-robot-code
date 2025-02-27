@@ -88,6 +88,11 @@ public class TunerConstants {
     private static final boolean kInvertRightSide = true;
 
     private static final int kPigeonId = 56;
+    private static final Pigeon2 pigeon = new Pigeon2(kPigeonId);
+
+    public static double getGyroHeading() {
+        return pigeon.getYaw().getValueAsDouble();
+    }
 
     // These are only used for simulation
     private static final MomentOfInertia kSteerInertia = KilogramSquareMeters.of(0.01);

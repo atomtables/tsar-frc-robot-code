@@ -35,4 +35,9 @@ public final class Constants {
       public static final int DRIVER_CONTROLLER_PORT = 0; //change (maybe)
       public static final int OPERATOR_CONTROLLER_PORT = 1; //change (maybe)
     }
+
+    public static final class AutoConstants {
+      public static final double INITIAL_X = 0;
+      public static final double INITIAL_Y = 0;
+    }
 }
