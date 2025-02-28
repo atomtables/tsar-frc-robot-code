@@ -27,6 +27,7 @@ import edu.wpi.first.wpilibj.RobotController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Subsystem;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine;
+import frc.robot.Robot;
 
 import frc.robot.generated.TunerConstants.TunerSwerveDrivetrain;
 
@@ -38,6 +39,7 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
     private static final double kSimLoopPeriod = 0.005; // 5 ms
     private Notifier m_simNotifier = null;
     private double m_lastSimTime;
+    private final SwerveRequest.ApplyRobotSpeeds AutoRequest = new SwerveRequest.ApplyRobotSpeeds();
 
     /* Blue alliance sees forward as 0 degrees (toward red alliance wall) */
     private static final Rotation2d kBlueAlliancePerspectiveRotation = Rotation2d.kZero;
@@ -291,6 +293,8 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
         super.addVisionMeasurement(visionRobotPoseMeters, Utils.fpgaToCurrentTime(timestampSeconds), visionMeasurementStdDevs);
     }
 
+    RobotConfig robotConfig = null;
+
     public CommandSwerveDrivetrain(SwerveDrivetrainConstants driveTrainConstants, SwerveModuleConstants... modules) {
         super(driveTrainConstants, modules);
 
@@ -304,43 +308,41 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
 
         // Configure AutoBuilder last
         AutoBuilder.configure(
-                this::getPose, // Robot pose supplier
-                this::resetPose, // Method to reset odometry (will be called if your auto has a starting pose)
-                this::getRobotRelativeSpeeds, // ChassisSpeeds supplier. MUST BE ROBOT RELATIVE
-                (speeds, feedforwards) -> driveRobotRelative(speeds), // Method that will drive the robot given ROBOT RELATIVE ChassisSpeeds. Also optionally outputs individual module feedforwards
-                new PPHolonomicDriveController( // PPHolonomicController is the built in path following controller for holonomic drive trains
-                        new PIDConstants(5.0, 0.0, 0.0), // Translation PID constants
-                        new PIDConstants(5.0, 0.0, 0.0) // Rotation PID constants
-                ),
-                config, // The robot configuration
-                () -> {
-                // Boolean supplier that controls when the path will be mirrored for the red alliance
-                // This will flip the path being followed to the red side of the field.
-                // THE ORIGIN WILL REMAIN ON THE BLUE SIDE
-
-                var alliance = DriverStation.getAlliance();
-                if (alliance.isPresent()) {
-                    return alliance.get() == DriverStation.Alliance.Red;
-                }
-                return false;
-                },
-                this // Reference to this subsystem to set requirements
-        );
+                    () -> this.getState().Pose, // Supplier of current robot pose
+                    this::resetPose, // Consumer for seeding pose against auto
+                    this::getCurrentRobotChassisSpeeds,
+                    speeds ->
+                            this.setControl(
+                                    AutoRequest.withSpeeds(
+                                            speeds)), // Consumer of ChassisSpeeds to drive the robot
+                    new PPHolonomicDriveController(
+                            new PIDConstants(10, 0, .55),
+                            new PIDConstants(5, 0, 0),
+                            Robot.kDefaultPeriod),
+                    robotConfig,
+                    () ->
+                            DriverStation.getAlliance().orElse(Alliance.Blue)
+                                    == Alliance.Red, // Assume the path needs to be flipped for Red vs
+                    // Blue, this is normally
+                    // the case
+                    this); // Subsystem for requirements
+        }
 
         public Pose2d getPose(){
             return this.getState().Pose;
         }
 
-        public void resetPose(Pose2d newPose){
-            this.seedFieldRelative(newPose);
+        @Override
+        public void resetPose(Pose2d pose) {
+            super.resetPose(pose);
         }
 
-        public ChassisSpeeds getRobotRelativeSpeeds() {
-            return this.m_kinematics.toChassisSpeeds(this.getState().ModuleStates);       
+        private ChassisSpeeds getCurrentRobotChassisSpeeds() {
+            return getKinematics().toChassisSpeeds(getState().ModuleStates);
         }
 
         public void driveRobotRelative(ChassisSpeeds speeds) {
-            this.setControl(drive.withSpeeds(speeds));
+            this.setControl(AutoRequest.withSpeeds(speeds));
         }
 
 }
