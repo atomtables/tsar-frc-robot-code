@@ -90,11 +90,6 @@ public class RobotContainer {
         NamedCommands.registerCommand("CoralStack", new CoralStackCommand(roller));
 
         new EventTrigger("run intake").whileTrue(Commands.print("running intake"));
-        new EventTrigger("shoot note").and(new Trigger(RollerSubsystem::runRoller(2)).onTrue(Commands.print("shoot note")));
-        new EventTrigger("shoot note").and(new Trigger(exampleSubsystem::someCondition).onTrue(Commands.print("shoot note")));
-        new EventTrigger("shoot note").and(new Trigger(exampleSubsystem::someCondition).onTrue(Commands.print("shoot note")));
-        new EventTrigger("shoot note").and(new Trigger(exampleSubsystem::someCondition).onTrue(Commands.print("shoot note")));
-        new EventTrigger("shoot note").and(new Trigger(exampleSubsystem::someCondition).onTrue(Commands.print("shoot note")));
 
     }
     
