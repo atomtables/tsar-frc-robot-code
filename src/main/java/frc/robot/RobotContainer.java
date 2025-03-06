@@ -62,7 +62,7 @@ public class RobotContainer {
     registerNamedCommands(); 
     configureBindings();
 
-    autoChooser = AutoBuilder.buildAutoChooser("New Auto");
+    autoChooser = AutoBuilder.buildAutoChooser("Wait Auto");
     autoChooser.setDefaultOption("Wait Auto", new PathPlannerAuto("Wait Auto")); 
     SmartDashboard.putData("Auto Chooser", autoChooser);
 }
