@@ -59,57 +59,38 @@ public class RobotContainer {
     private final SendableChooser<Command> autoChooser;
 
     public RobotContainer() {
-    System.out.println("🔧 Initializing RobotContainer...");
+    registerNamedCommands(); 
+    configureBindings();
 
-    registerNamedCommands(); // ✅ Ensure named commands are registered first
-    configureBindings(); 
-
-    NamedCommands.registerCommand("TestCommand", Commands.print("🚀 Test Command Executed!"));
-
-    autoChooser = AutoBuilder.buildAutoChooser();
-
+    autoChooser = AutoBuilder.buildAutoChooser("New Auto");
+    autoChooser.setDefaultOption("Wait Auto", new PathPlannerAuto("Wait Auto")); 
     SmartDashboard.putData("Auto Chooser", autoChooser);
-
-    System.out.println("✅ Auto Chooser Initialized!");
 }
+
 
 
     private void registerNamedCommands() {
-    System.out.println("🔹 Registering Named Commands...");
+    System.out.println("Registering Named Commands...");
 
     NamedCommands.registerCommand("AlgieIn", new AlgieInCommand(roller));
-    System.out.println("✅ Registered: AlgieIn");
-
     NamedCommands.registerCommand("AlgieOut", new AlgieOutCommand(roller));
-    System.out.println("✅ Registered: AlgieOut");
-
     NamedCommands.registerCommand("ArmDown", new ArmDownCommand(arm));
-    System.out.println("✅ Registered: ArmDown");
-
     NamedCommands.registerCommand("ArmUp", new ArmUpCommand(arm));
-    System.out.println("✅ Registered: ArmUp");
-
     NamedCommands.registerCommand("ClimberDown", new ClimberDownCommand(climber));
-    System.out.println("✅ Registered: ClimberDown");
-
     NamedCommands.registerCommand("ClimberUp", new ClimberUpCommand(climber));
-    System.out.println("✅ Registered: ClimberUp");
-
     NamedCommands.registerCommand("CoralOut", new CoralOutCommand(roller));
-    System.out.println("✅ Registered: CoralOut");
-
     NamedCommands.registerCommand("CoralStack", new CoralStackCommand(roller));
-    System.out.println("✅ Registered: CoralStack");
 
-    System.out.println("✅ All Named Commands Registered!");
+    System.out.println("Named Commands Registered!");
 }
+
 
 
     public Command getAutonomousCommand() {
     try {
         return new PathPlannerAuto("Wait Auto");
     } catch (Exception e) {
-        DriverStation.reportError("❌ Error loading autonomous path: " + e.getMessage(), e.getStackTrace());
+        DriverStation.reportError("Error loading autonomous path: " + e.getMessage(), e.getStackTrace());
         return Commands.none();
     }
 }
