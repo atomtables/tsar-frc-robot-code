@@ -58,41 +58,23 @@ public class RobotContainer {
     public final ArmSubsystem arm = new ArmSubsystem();
     private final SendableChooser<Command> autoChooser;
 
-    public RobotContainer() {
-    registerNamedCommands(); 
-    configureBindings();
-
-    autoChooser = AutoBuilder.buildAutoChooser("Wait Auto");
+    public RobotContainer() { 
+    autoChooser = AutoBuilder.buildAutoChooser("Tests");
     autoChooser.setDefaultOption("Wait Auto", new PathPlannerAuto("Wait Auto")); 
     SmartDashboard.putData("Auto Chooser", autoChooser);
+
+    configureBindings();
 }
 
-
-
-    private void registerNamedCommands() {
-    System.out.println("Registering Named Commands...");
-
-    NamedCommands.registerCommand("AlgieIn", new AlgieInCommand(roller));
-    NamedCommands.registerCommand("AlgieOut", new AlgieOutCommand(roller));
-    NamedCommands.registerCommand("ArmDown", new ArmDownCommand(arm));
-    NamedCommands.registerCommand("ArmUp", new ArmUpCommand(arm));
-    NamedCommands.registerCommand("ClimberDown", new ClimberDownCommand(climber));
-    NamedCommands.registerCommand("ClimberUp", new ClimberUpCommand(climber));
-    NamedCommands.registerCommand("CoralOut", new CoralOutCommand(roller));
-    NamedCommands.registerCommand("CoralStack", new CoralStackCommand(roller));
-
-    System.out.println("Named Commands Registered!");
-}
-
-
-
-    public Command getAutonomousCommand() {
+    public Command getAutonomousCommand() {/*
     try {
         return new PathPlannerAuto("Wait Auto");
     } catch (Exception e) {
         DriverStation.reportError("Error loading autonomous path: " + e.getMessage(), e.getStackTrace());
         return Commands.none();
     }
+    */
+   return autoChooser.getSelected();
 }
 
 
