@@ -59,11 +59,13 @@ public class RobotContainer {
     private final SendableChooser<Command> autoChooser;
 
     public RobotContainer() { 
-    autoChooser = AutoBuilder.buildAutoChooser("Tests");
-    autoChooser.setDefaultOption("Wait Auto", new PathPlannerAuto("Wait Auto")); 
-    SmartDashboard.putData("Auto Chooser", autoChooser);
+        NamedCommands.registerCommand("DepositCoral", new CoralOutCommand(roller));
 
-    configureBindings();
+        autoChooser = AutoBuilder.buildAutoChooser("CoralDeposit");
+        autoChooser.setDefaultOption("CoralDeposit", new PathPlannerAuto("CoralDeposit")); 
+        SmartDashboard.putData("Auto Chooser", autoChooser);
+
+        configureBindings();
 }
 
     public Command getAutonomousCommand() {/*

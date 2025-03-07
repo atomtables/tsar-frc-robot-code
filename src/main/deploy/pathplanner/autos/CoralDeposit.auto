@@ -5,9 +5,15 @@
     "data": {
       "commands": [
         {
-          "type": "wait",
+          "type": "path",
           "data": {
-            "waitTime": 15.0
+            "pathName": "StraightForward"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "DepositCoral"
           }
         }
       ]
