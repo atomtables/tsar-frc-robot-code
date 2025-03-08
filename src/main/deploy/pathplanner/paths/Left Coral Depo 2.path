@@ -1,0 +1,54 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 1.625369318181818,
+        "y": 0.7991903409090912
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 2.0801602535608357,
+        "y": 1.161552004307334
+      },
+      "isLocked": false,
+      "linkedName": "Left Coral Pick 2"
+    },
+    {
+      "anchor": {
+        "x": 3.579801136363636,
+        "y": 2.5841051136363635
+      },
+      "prevControl": {
+        "x": 1.650348555505954,
+        "y": 2.280747421323955
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": null
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 59.99999999999999
+  },
+  "reversed": false,
+  "folder": "Left Auto Coral",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": -125.00000000000001
+  },
+  "useDefaultConstraints": true
+}

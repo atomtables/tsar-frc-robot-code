@@ -14,6 +14,7 @@ import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.auto.NamedCommands;
 import com.pathplanner.lib.commands.PathPlannerAuto;
 import com.pathplanner.lib.path.PathPlannerPath;
+import frc.robot.Constants.RollerConstants;
 
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.wpilibj.DriverStation;
@@ -59,6 +60,7 @@ public class RobotContainer {
     private final SendableChooser<Command> autoChooser;
 
     public RobotContainer() { 
+        roller.runRoller(RollerConstants.ROLLER_CORAL_OUT);
         NamedCommands.registerCommand("DepositCoral", new CoralOutCommand(roller));
 
         autoChooser = AutoBuilder.buildAutoChooser("CoralDeposit");

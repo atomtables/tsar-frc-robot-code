@@ -1,0 +1,70 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 6.172414772727272,
+        "y": 4.07984375
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 6.304760388925117,
+        "y": 4.413526867328214
+      },
+      "isLocked": false,
+      "linkedName": "Middle Coral Depo 1"
+    },
+    {
+      "anchor": {
+        "x": 6.172414772727272,
+        "y": 5.356207386363637
+      },
+      "prevControl": {
+        "x": 6.296302712810956,
+        "y": 5.047787049687553
+      },
+      "nextControl": {
+        "x": 5.878778280273204,
+        "y": 6.087218538876902
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 1.4458806818181815,
+        "y": 7.101235795454545
+      },
+      "prevControl": {
+        "x": 1.1960173408405432,
+        "y": 7.109500832386855
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "Middle Coral Pick 2 (Right)"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 126.95390899254761
+  },
+  "reversed": false,
+  "folder": "Middle Auto Coral",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 180.0
+  },
+  "useDefaultConstraints": true
+}

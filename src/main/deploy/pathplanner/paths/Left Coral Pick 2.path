@@ -1,0 +1,70 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 5.3348011363636365,
+        "y": 2.5541903409090914
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 5.4649609764889355,
+        "y": 2.767634516324015
+      },
+      "isLocked": false,
+      "linkedName": "Left Coral Depo 1"
+    },
+    {
+      "anchor": {
+        "x": 4.776392045454545,
+        "y": 1.99578125
+      },
+      "prevControl": {
+        "x": 5.014675085265088,
+        "y": 2.071419817798758
+      },
+      "nextControl": {
+        "x": 4.161948665723122,
+        "y": 1.8007375017195282
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 1.625369318181818,
+        "y": 0.7991903409090912
+      },
+      "prevControl": {
+        "x": 1.394630964128792,
+        "y": 0.7029624241234704
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "Left Coral Pick 2"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": -125.00000000000001
+  },
+  "reversed": false,
+  "folder": "Left Auto Coral",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 119.99999999999999
+  },
+  "useDefaultConstraints": true
+}
