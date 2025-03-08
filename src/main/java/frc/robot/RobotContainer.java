@@ -63,8 +63,8 @@ public class RobotContainer {
         roller.runRoller(RollerConstants.ROLLER_CORAL_OUT);
         NamedCommands.registerCommand("DepositCoral", new CoralOutCommand(roller));
 
-        autoChooser = AutoBuilder.buildAutoChooser("CoralDeposit");
-        autoChooser.setDefaultOption("CoralDeposit", new PathPlannerAuto("CoralDeposit")); 
+        autoChooser = AutoBuilder.buildAutoChooser("Coral Middle 1");
+        autoChooser.setDefaultOption("Coral Middle 1", new PathPlannerAuto("Coral Middle 1")); 
         SmartDashboard.putData("Auto Chooser", autoChooser);
 
         configureBindings();

@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 5.3746875,
-        "y": 5.445951704545455
+        "x": 5.24396404109589,
+        "y": 5.242080479452054
       },
       "prevControl": null,
       "nextControl": {
-        "x": 5.604034090909091,
-        "y": 6.064190340909091
+        "x": 5.473310632004981,
+        "y": 5.86031911581569
       },
       "isLocked": false,
       "linkedName": "Right Coral Depo 1"
@@ -45,7 +45,7 @@
     "rotation": 126.32682595212023
   },
   "reversed": false,
-  "folder": "Right Auto Coral",
+  "folder": null,
   "idealStartingState": {
     "velocity": 0,
     "rotation": -119.50072462349915

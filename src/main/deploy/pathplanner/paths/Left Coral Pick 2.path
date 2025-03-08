@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 5.3348011363636365,
-        "y": 2.5541903409090914
+        "x": 5.258989726027397,
+        "y": 2.7478167808219176
       },
       "prevControl": null,
       "nextControl": {
-        "x": 5.4649609764889355,
-        "y": 2.767634516324015
+        "x": 5.389149566152696,
+        "y": 2.961260956236841
       },
       "isLocked": false,
       "linkedName": "Left Coral Depo 1"
@@ -61,7 +61,7 @@
     "rotation": -125.00000000000001
   },
   "reversed": false,
-  "folder": "Left Auto Coral",
+  "folder": null,
   "idealStartingState": {
     "velocity": 0,
     "rotation": 119.99999999999999

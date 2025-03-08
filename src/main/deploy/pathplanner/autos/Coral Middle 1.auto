@@ -32,6 +32,6 @@
     }
   },
   "resetOdom": true,
-  "folder": "Middle Start",
+  "folder": null,
   "choreoAuto": false
 }

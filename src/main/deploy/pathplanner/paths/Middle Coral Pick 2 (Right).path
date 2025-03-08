@@ -3,12 +3,12 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 6.172414772727272,
+        "x": 5.9651969178082185,
         "y": 4.07984375
       },
       "prevControl": null,
       "nextControl": {
-        "x": 6.304760388925117,
+        "x": 6.097542534006063,
         "y": 4.413526867328214
       },
       "isLocked": false,
@@ -61,7 +61,7 @@
     "rotation": 126.95390899254761
   },
   "reversed": false,
-  "folder": "Middle Auto Coral",
+  "folder": null,
   "idealStartingState": {
     "velocity": 0,
     "rotation": 180.0

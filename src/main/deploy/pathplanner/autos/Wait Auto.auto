@@ -5,10 +5,10 @@
     "data": {
       "commands": [
         {
-          "type": "path",
+          "type": "wait",
           "data": {
-            "pathName": "SimplePath"
-          }f
+            "waitTime": 15.0
+          }
         }
       ]
     }

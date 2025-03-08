@@ -3,25 +3,25 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 7.0499147727272735,
-        "y": 1.9160085227272725
+        "x": 7.1372003424657535,
+        "y": 1.906
       },
       "prevControl": null,
       "nextControl": {
-        "x": 6.3432113741733245,
-        "y": 2.0352758652375216
+        "x": 6.515489555792463,
+        "y": 2.0464326197357603
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 5.3348011363636365,
-        "y": 2.5541903409090914
+        "x": 5.258989726027397,
+        "y": 2.7478167808219176
       },
       "prevControl": {
-        "x": 5.1202749526156035,
-        "y": 2.6825590149947316
+        "x": 4.97389222105523,
+        "y": 2.9198385990991396
       },
       "nextControl": null,
       "isLocked": false,
@@ -45,7 +45,7 @@
     "rotation": 119.99999999999999
   },
   "reversed": false,
-  "folder": "Left Auto Coral",
+  "folder": null,
   "idealStartingState": {
     "velocity": 0,
     "rotation": 180.0
