@@ -8,24 +8,24 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 6.780138633285481,
-        "y": 4.089389964911855
+        "x": 6.503728948827584,
+        "y": 4.162983119787228
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 5.604580479452055,
-        "y": 4.07984375
+        "x": 5.559503424657534,
+        "y": 4.055051369863014
       },
       "prevControl": {
-        "x": 6.253465410458065,
-        "y": 4.07344340891262
+        "x": 5.808884358908042,
+        "y": 4.072634021322456
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "Middle Coral Depo 1"
+      "linkedName": null
     }
   ],
   "rotationTargets": [],
@@ -41,8 +41,8 @@
     "unlimited": false
   },
   "goalEndState": {
-    "velocity": 0,
-    "rotation": 13.058530524116604
+    "velocity": 0.0,
+    "rotation": 0.0
   },
   "reversed": false,
   "folder": null,
