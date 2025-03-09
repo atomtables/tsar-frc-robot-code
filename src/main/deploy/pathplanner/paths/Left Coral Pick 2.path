@@ -3,32 +3,16 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 5.258989726027397,
-        "y": 2.7478167808219176
+        "x": 5.063655821917808,
+        "y": 3.0483304794520545
       },
       "prevControl": null,
       "nextControl": {
-        "x": 5.389149566152696,
-        "y": 2.961260956236841
+        "x": 5.202330870974116,
+        "y": 2.8403179058675936
       },
       "isLocked": false,
       "linkedName": "Left Coral Depo 1"
-    },
-    {
-      "anchor": {
-        "x": 4.776392045454545,
-        "y": 1.99578125
-      },
-      "prevControl": {
-        "x": 5.014675085265088,
-        "y": 2.071419817798758
-      },
-      "nextControl": {
-        "x": 4.161948665723122,
-        "y": 1.8007375017195282
-      },
-      "isLocked": false,
-      "linkedName": null
     },
     {
       "anchor": {
@@ -36,8 +20,8 @@
         "y": 0.7991903409090912
       },
       "prevControl": {
-        "x": 1.394630964128792,
-        "y": 0.7029624241234704
+        "x": 1.349285004781072,
+        "y": 0.6597100663927034
       },
       "nextControl": null,
       "isLocked": false,
@@ -58,13 +42,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -125.00000000000001
+    "rotation": 53.0
   },
   "reversed": false,
   "folder": null,
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 119.99999999999999
+    "rotation": -59.99999999999999
   },
   "useDefaultConstraints": true
 }

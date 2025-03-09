@@ -8,8 +8,8 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.654433132909757,
-        "y": 6.873908541506695
+        "x": 1.6541077293535242,
+        "y": 6.871148876608402
       },
       "isLocked": false,
       "linkedName": "Right Coral Pick 2"
@@ -20,8 +20,8 @@
         "y": 5.50578125
       },
       "prevControl": {
-        "x": 1.922149719451788,
-        "y": 5.209781958406294
+        "x": 1.9160961320383632,
+        "y": 5.211341279090768
       },
       "nextControl": null,
       "isLocked": false,
@@ -42,13 +42,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -59.281095735970844
+    "rotation": 119.99999999999999
   },
   "reversed": false,
-  "folder": "Right Auto Coral",
+  "folder": null,
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 126.32682595212023
+    "rotation": -53.0
   },
   "useDefaultConstraints": true
 }

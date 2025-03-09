@@ -7,7 +7,7 @@ public final class Constants {
       public static final int ROLLER_MOTOR_ID = 5; //change
       public static final int ROLLER_MOTOR_CURRENT_LIMIT = 60;
       public static final double ROLLER_MOTOR_VOLTAGE_COMP = 10;
-      public static final double ROLLER_CORAL_OUT = -.4;
+      public static final double ROLLER_CORAL_OUT = -.6;
       public static final double ROLLER_ALGAE_IN = -1.0;
       public static final double ROLLER_ALGAE_OUT = 1.0;
       public static final double ROLLER_CORAL_STACK = -1;

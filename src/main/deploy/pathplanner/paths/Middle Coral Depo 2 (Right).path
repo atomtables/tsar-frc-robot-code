@@ -8,8 +8,8 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.1225840561335847,
-        "y": 6.477986651577858
+        "x": 2.132343343788598,
+        "y": 6.486677103491811
       },
       "isLocked": false,
       "linkedName": "Middle Coral Pick 2 (Right)"
@@ -20,8 +20,8 @@
         "y": 3.990099431818182
       },
       "prevControl": {
-        "x": 2.6230570959788118,
-        "y": 4.183007875396331
+        "x": 2.6243299360553562,
+        "y": 4.184050078404673
       },
       "nextControl": null,
       "isLocked": false,
@@ -42,13 +42,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 1.1934894239819067
+    "rotation": 180.0
   },
   "reversed": false,
-  "folder": "Middle Auto Coral",
+  "folder": null,
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 126.95390899254761
+    "rotation": -53.0
   },
   "useDefaultConstraints": true
 }

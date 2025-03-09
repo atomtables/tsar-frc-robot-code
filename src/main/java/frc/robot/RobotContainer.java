@@ -60,11 +60,10 @@ public class RobotContainer {
     private final SendableChooser<Command> autoChooser;
 
     public RobotContainer() { 
-        roller.runRoller(RollerConstants.ROLLER_CORAL_OUT);
         NamedCommands.registerCommand("DepositCoral", new CoralOutCommand(roller));
 
-        autoChooser = AutoBuilder.buildAutoChooser("Coral Middle 1");
-        autoChooser.setDefaultOption("Coral Middle 1", new PathPlannerAuto("Coral Middle 1")); 
+        autoChooser = AutoBuilder.buildAutoChooser("Wait Auto");
+        autoChooser.setDefaultOption("Wait Auto", new PathPlannerAuto("Wait Auto")); 
         SmartDashboard.putData("Auto Chooser", autoChooser);
 
         configureBindings();

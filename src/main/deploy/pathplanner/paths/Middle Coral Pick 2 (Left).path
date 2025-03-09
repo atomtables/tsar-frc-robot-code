@@ -3,32 +3,16 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 5.9651969178082185,
+        "x": 5.604580479452055,
         "y": 4.07984375
       },
       "prevControl": null,
       "nextControl": {
-        "x": 6.081657493592879,
-        "y": 3.858626810576489
+        "x": 6.7765839041095886,
+        "y": 2.0115582191780823
       },
       "isLocked": false,
       "linkedName": "Middle Coral Depo 1"
-    },
-    {
-      "anchor": {
-        "x": 6.48153409090909,
-        "y": 3.0328267045454544
-      },
-      "prevControl": {
-        "x": 6.558016208363692,
-        "y": 3.2708403295959134
-      },
-      "nextControl": {
-        "x": 6.175736811689112,
-        "y": 2.0811804716738624
-      },
-      "isLocked": false,
-      "linkedName": null
     },
     {
       "anchor": {
@@ -36,8 +20,8 @@
         "y": 0.9188494318181825
       },
       "prevControl": {
-        "x": 0.675971936777397,
-        "y": 0.7647869337430047
+        "x": 1.2196900796491137,
+        "y": 0.8368285895857706
       },
       "nextControl": null,
       "isLocked": false,
@@ -58,13 +42,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -124.34609740006152
+    "rotation": 53.0
   },
   "reversed": false,
   "folder": null,
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 180.0
+    "rotation": 13.058530524116604
   },
   "useDefaultConstraints": true
 }
