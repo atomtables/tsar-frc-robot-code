@@ -6,11 +6,13 @@ package frc.robot.commands;
 
 import frc.robot.Constants.ClimberConstants;
 import frc.robot.subsystems.Climber;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.Command;
 
 /** An example command that uses an example subsystem. */
 public class ClimberDownCommand extends Command {
   private final Climber m_climber;
+  private final Timer timer = new Timer();
 
   /**
    * Runs the climber down, note that this can change 
@@ -25,7 +27,10 @@ public class ClimberDownCommand extends Command {
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() {
+    timer.reset();
+    timer.start();
+  }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
@@ -38,6 +43,7 @@ public class ClimberDownCommand extends Command {
   @Override
   public void end(boolean interrupted) {
     m_climber.runClimber(0);
+    timer.stop();
   }
 
   // Returns true when the command should end.

@@ -6,11 +6,13 @@ package frc.robot.commands;
 
 import frc.robot.Constants.ArmConstants;
 import frc.robot.subsystems.ArmSubsystem;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.Command;
 
 /** An ArmDown command that uses an Arm subsystem. */
 public class ArmDownCommand extends Command {
   private final ArmSubsystem m_arm;
+  private final Timer timer = new Timer();
 
   /**
    * Powers the arm down, when finished passively holds the arm down.
@@ -28,7 +30,10 @@ public class ArmDownCommand extends Command {
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() {
+    timer.reset();
+    timer.start();
+  }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
@@ -42,11 +47,12 @@ public class ArmDownCommand extends Command {
   @Override
   public void end(boolean interrupted) {
     m_arm.runArm(ArmConstants.ARM_HOLD_DOWN);
+    timer.stop();
   }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    return timer.get() > 0.5;
   }
 }

@@ -23,15 +23,22 @@
           }
         },
         {
-          "type": "named",
+          "type": "parallel",
           "data": {
-            "name": "DepositCoral"
-          }
-        },
-        {
-          "type": "wait",
-          "data": {
-            "waitTime": 9.0
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "DepositCoral"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "ArmDown"
+                }
+              }
+            ]
           }
         }
       ]
