@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 public class ArmDownCommand extends Command {
   private final ArmSubsystem m_arm;
   private final Timer timer = new Timer();
+  private final double time;
 
   /**
    * Powers the arm down, when finished passively holds the arm down.
@@ -22,10 +23,11 @@ public class ArmDownCommand extends Command {
    *
    * @param arm The subsystem used by this command.
    */
-  public ArmDownCommand(ArmSubsystem arm) {
+  public ArmDownCommand(ArmSubsystem arm, double time) {
     m_arm = arm;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(arm);
+    this.time = time;
   }
 
   // Called when the command is initially scheduled.
@@ -53,6 +55,6 @@ public class ArmDownCommand extends Command {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return timer.get() > 0.5;
+    return timer.get() > time;
   }
 }

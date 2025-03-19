@@ -13,15 +13,17 @@ import edu.wpi.first.wpilibj2.command.Command;
 public class CoralOutCommand extends Command {
   private final RollerSubsystem m_roller;
   private final Timer timer = new Timer();
+  private final double time;
 
   /**
    * Use to score coral into L1.
    *
    * @param roller The subsystem used by this command.
    */
-  public CoralOutCommand(RollerSubsystem roller) {
+  public CoralOutCommand(RollerSubsystem roller, double time) {
     m_roller = roller;
     addRequirements(roller);
+    this.time = time;
   }
 
   // Called when the command is initially scheduled.
