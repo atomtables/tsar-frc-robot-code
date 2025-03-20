@@ -62,8 +62,9 @@ public class RobotContainer {
     private final SendableChooser<Command> autoChooser;
 
     public RobotContainer() { 
-        NamedCommands.registerCommand("DepositCoral", new CoralOutCommand(roller, 0.40));
-        NamedCommands.registerCommand("ArmDown", new ArmDownCommand(arm, 0.1));
+        NamedCommands.registerCommand("DepositCoral", new CoralOutCommand(roller, 0.05));
+        NamedCommands.registerCommand("ArmDown", new ArmDownCommand(arm, 0.15));
+        NamedCommands.registerCommand("ArmUp", new ArmUpCommand(arm, 0.5));
 
         autoChooser = AutoBuilder.buildAutoChooser("Wait Auto");
         autoChooser.setDefaultOption("Wait Auto", new PathPlannerAuto("Wait Auto")); 
@@ -117,10 +118,8 @@ public class RobotContainer {
         ));
         joystick.y().onTrue(
             new SequentialCommandGroup(
-                new ParallelCommandGroup(
-                    new CoralStackCommand(roller, 0.1),
-                    new ArmDownCommand(arm, 0.1)
-                ),
+                new CoralStackCommand(roller, 0.1),
+                new ArmDownCommand(arm, 0.5),
                 new ArmUpCommand(arm, 0.5)
             )
         );
