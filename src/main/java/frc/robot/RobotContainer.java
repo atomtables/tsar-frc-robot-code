@@ -22,6 +22,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
+import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
+import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
 
@@ -104,10 +106,24 @@ public class RobotContainer {
 
         joystick.leftBumper().whileTrue(new AlgieInCommand(roller));
         joystick.rightBumper().whileTrue(new AlgieOutCommand(roller));
-        joystick.leftTrigger().whileTrue(new ArmUpCommand(arm));
+        joystick.leftTrigger().whileTrue(new ArmUpCommand(arm, 0.5));
         joystick.rightTrigger().whileTrue(new ArmDownCommand(arm, 0.5));
-        joystick.x().whileTrue(new CoralOutCommand(roller, 3.0));
-        joystick.y().whileTrue(new CoralStackCommand(roller));
+        joystick.x().onTrue(new SequentialCommandGroup(
+            new ParallelCommandGroup(
+            new CoralOutCommand(roller, 0.05),
+            new ArmDownCommand(arm, 0.15)
+            ),
+            new ArmUpCommand(arm, 0.5)
+        ));
+        joystick.y().onTrue(
+            new SequentialCommandGroup(
+                new ParallelCommandGroup(
+                    new CoralStackCommand(roller, 0.1),
+                    new ArmDownCommand(arm, 0.1)
+                ),
+                new ArmUpCommand(arm, 0.5)
+            )
+        );
         joystick.a().whileTrue(new ClimberUpCommand(climber));
         joystick.b().whileTrue(new ClimberDownCommand(climber));
     }

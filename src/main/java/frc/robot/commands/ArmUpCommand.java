@@ -6,11 +6,14 @@ package frc.robot.commands;
 
 import frc.robot.Constants.ArmConstants;
 import frc.robot.subsystems.ArmSubsystem;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.Command;
 
 /** An ArmUpCommand that uses an Arm subsystem. */
 public class ArmUpCommand extends Command {
   private final ArmSubsystem m_arm;
+  private final Timer timer = new Timer();
+  private final double time;
 
   /**
    * Powers the arm up, when finished passively holds the arm up.
@@ -20,14 +23,18 @@ public class ArmUpCommand extends Command {
    *
    * @param arm The subsystem used by this command.
    */
-  public ArmUpCommand(ArmSubsystem arm) {
+  public ArmUpCommand(ArmSubsystem arm, double time) {
     m_arm = arm;
     addRequirements(arm);
+    this.time = time;
   }
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() {
+    timer.reset();
+    timer.start();
+  }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
@@ -41,11 +48,12 @@ public class ArmUpCommand extends Command {
   @Override
   public void end(boolean interrupted) {
     m_arm.runArm(ArmConstants.ARM_HOLD_UP);
+    timer.stop();
   }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    return timer.get() > time;
   }
 }
