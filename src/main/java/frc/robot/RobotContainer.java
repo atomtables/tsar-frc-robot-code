@@ -65,6 +65,8 @@ public class RobotContainer {
         NamedCommands.registerCommand("DepositCoral", new CoralOutCommand(roller, 0.05));
         NamedCommands.registerCommand("ArmDown", new ArmDownCommand(arm, 0.15));
         NamedCommands.registerCommand("ArmUp", new ArmUpCommand(arm, 0.5));
+        NamedCommands.registerCommand("AlgaeIn", AlgieInCommand(roller, 0.5));
+        NamedCommands.registerCommand("AlgaeOut", AlgieOutCommand(roller, 0.5));
 
         autoChooser = AutoBuilder.buildAutoChooser("Wait Auto");
         autoChooser.setDefaultOption("Wait Auto", new PathPlannerAuto("Wait Auto")); 
