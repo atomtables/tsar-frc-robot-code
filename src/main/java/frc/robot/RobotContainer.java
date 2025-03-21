@@ -25,6 +25,7 @@ import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import edu.wpi.first.wpilibj2.command.button.Trigger;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
 
 import frc.robot.Constants.OperatorConstants;
@@ -60,13 +61,12 @@ public class RobotContainer {
     public final RollerSubsystem roller = new RollerSubsystem();
     public final ArmSubsystem arm = new ArmSubsystem();
     private final SendableChooser<Command> autoChooser;
+    private double slow = 1;
 
     public RobotContainer() { 
-        NamedCommands.registerCommand("DepositCoral", new CoralOutCommand(roller, 0.05));
-        NamedCommands.registerCommand("ArmDown", new ArmDownCommand(arm, 0.15));
+        NamedCommands.registerCommand("DepositCoral", new CoralOutCommand(roller, 0.1));
+        NamedCommands.registerCommand("ArmDown", new ArmDownCommand(arm, 0.5));
         NamedCommands.registerCommand("ArmUp", new ArmUpCommand(arm, 0.5));
-        NamedCommands.registerCommand("AlgaeIn", AlgieInCommand(roller, 0.5));
-        NamedCommands.registerCommand("AlgaeOut", AlgieOutCommand(roller, 0.5));
 
         autoChooser = AutoBuilder.buildAutoChooser("Wait Auto");
         autoChooser.setDefaultOption("Wait Auto", new PathPlannerAuto("Wait Auto")); 
@@ -107,10 +107,17 @@ public class RobotContainer {
 
         drivetrain.registerTelemetry(logger::telemeterize);
 
-        joystick.leftBumper().whileTrue(new AlgieInCommand(roller));
-        joystick.rightBumper().whileTrue(new AlgieOutCommand(roller));
-        joystick.leftTrigger().whileTrue(new ArmUpCommand(arm, 0.5));
-        joystick.rightTrigger().whileTrue(new ArmDownCommand(arm, 0.5));
+        joystick.povDown().onTrue(
+            new SequentialCommandGroup(
+                new ArmDownCommand(arm, 0.2),
+                new AlgieInCommand(roller, 0.5),
+                new ArmUpCommand(arm, 0.5)
+            )
+        );
+        joystick.leftBumper().whileTrue(new AlgieInCommand(roller, 1));
+        joystick.rightBumper().whileTrue(new AlgieOutCommand(roller, 1));
+        joystick.leftTrigger().whileTrue(new ArmUpCommand(arm, 1));
+        joystick.rightTrigger().whileTrue(new ArmDownCommand(arm, 1));
         joystick.x().onTrue(new SequentialCommandGroup(
             new ParallelCommandGroup(
             new CoralOutCommand(roller, 0.05),
